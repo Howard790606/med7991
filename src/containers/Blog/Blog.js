@@ -28,7 +28,7 @@ export default class Blog extends Component {
                     </div>
                 </nav>
                 <Switch>
-                    <Route exact path="/posts" component={Posts} />
+                    <Route path={process.env.PUBLIC_URL + '/posts'} component={Posts} />
                     <Route path="/posts/:id?" component={PostRender} />
                     <Route exact path="/authors" component={Authors} />
                     <Route exact path="/about" component={About} />
