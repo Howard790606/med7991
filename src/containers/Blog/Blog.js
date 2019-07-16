@@ -30,12 +30,12 @@ export default class Blog extends Component {
                 <Switch>
                     <Route path={process.env.PUBLIC_URL + '/posts'} component={Posts} />
                     <Route path="/posts/:id?" component={PostRender} />
-                    <Route exact path="/authors" component={Authors} />
-                    <Route exact path="/about" component={About} />
-                    <Route exact path="/medcalculator" component={MedCalculator} />
-                    <Route exact path="/notes" component={Notes} />
-                    <Route exact path="/" component={MedCalculator} />
-                    <Redirect from="/medcalculator" to="/" />
+                    <Route path={process.env.PUBLIC_URL + '/authors'} component={Authors} />
+                    <Route path={process.env.PUBLIC_URL + '/about'} component={About} />
+                    <Route path={process.env.PUBLIC_URL + "/medcalculator"} component={MedCalculator} />
+                    <Route path={process.env.PUBLIC_URL + "/notes"} component={Notes} />
+                    <Route path={process.env.PUBLIC_URL + "/"} component={MedCalculator} />
+                    <Redirect from={process.env.PUBLIC_URL + "/medcalculator"} to="/" />
                 </Switch>
             </div>
         );
