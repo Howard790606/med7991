@@ -19,11 +19,11 @@ export default class Blog extends Component {
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div class="navbar-nav">
-                            <a class="nav-item nav-link active" href="#"><NavLink to="/about">About</NavLink><span class="sr-only">(current)</span></a>
-                            <a class="nav-item nav-link" href="#"><NavLink to="/posts">Posts</NavLink></a>
-                            <a class="nav-item nav-link" href="#"><NavLink to="/authors">Authors</NavLink></a>
-                            <a class="nav-item nav-link" href="#"><NavLink to="/medcalculator">MedCalculator</NavLink></a>
-                            <a class="nav-item nav-link" href="#"><NavLink to="/notes">Notes</NavLink></a>
+                            <a class="nav-item nav-link active" href="#"><NavLink to={process.env.PUBLIC_URL + '/about'}>About</NavLink><span class="sr-only">(current)</span></a>
+                            <a class="nav-item nav-link" href="#"><NavLink to={process.env.PUBLIC_URL + '/posts'}>Posts</NavLink></a>
+                            <a class="nav-item nav-link" href="#"><NavLink to={process.env.PUBLIC_URL + '/authors'}>Authors</NavLink></a>
+                            <a class="nav-item nav-link" href="#"><NavLink to={process.env.PUBLIC_URL + "/medcalculator"} >MedCalculator</NavLink></a>
+                            <a class="nav-item nav-link" href="#"><NavLink to={process.env.PUBLIC_URL + "/notes"}>Notes</NavLink></a>
                         </div>
                     </div>
                 </nav>
