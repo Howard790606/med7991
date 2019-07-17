@@ -10,21 +10,24 @@ export default class ABG_Interpretation extends Component {
             kgValue : 0,
             ageValue : 0,
             creValue : 0,
-            gender: "male"
+            gender: "male",
+            diagnosis: ""
          };
         }
 
-    handleIncCCr = () => {
+    handleABG = () => {
         if(this.state.gender=="male"){
             this.setState(state => ({ 
                 ccr: ((140-this.state.ageValue)*this.state.kgValue/(72*this.state.creValue)).toFixed(2), 
-                eGFR: (175*Math.pow(this.state.creValue,-1.154)*Math.pow(this.state.ageValue, -0.203)).toFixed(2)
+                eGFR: (175*Math.pow(this.state.creValue,-1.154)*Math.pow(this.state.ageValue, -0.203)).toFixed(2),
+                diagnosis: "metabolic acidosis"
             }))
         }
         else{
             this.setState(state => ({ 
                 ccr: (0.85*(140-this.state.ageValue)*this.state.kgValue/(72*this.state.creValue)).toFixed(2), 
-                eGFR: (0.742*175*Math.pow(this.state.creValue,-1.154)*Math.pow(this.state.ageValue, -0.203)).toFixed(2)
+                eGFR: (0.742*175*Math.pow(this.state.creValue,-1.154)*Math.pow(this.state.ageValue, -0.203)).toFixed(2),
+                diagnosis: "metabolic acidosis"
             }))
         }
         };
@@ -46,10 +49,9 @@ export default class ABG_Interpretation extends Component {
                 <label> BE<input type="number" value={this.state.creValue} onChange={this.handleChangeCre}/></label>
                 <label> Na<input type="number" value={this.state.creValue} onChange={this.handleChangeCre}/></label>
                 <span>
-                    <button onClick={this.handleIncCCr}>calculate</button>
+                    <button onClick={this.handleABG}>calculate</button>
                 </span>
-                <h3>Diagnosis {this.state.ccr}mg/dl</h3>
-                <h3>eGFR: {this.state.eGFR}mg/dl</h3>
+                <h3>Diagnosis: {this.state.diagnosis}</h3>
             </div>
         );
     }
