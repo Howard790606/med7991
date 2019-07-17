@@ -23,7 +23,7 @@ export default class Blog extends Component {
                             <a class="nav-item nav-link" href="#"><NavLink to='/posts'>Posts</NavLink></a>
                             <a class="nav-item nav-link" href="#"><NavLink to='/authors'>Authors</NavLink></a>
                             <a class="nav-item nav-link" href="#"><NavLink to="/medcalculator">MedCalculator</NavLink></a>
-                            <a class="nav-item nav-link" href="#"><NavLink to={process.env.PUBLIC_URL + "/notes"}>Notes</NavLink></a>
+                            <a class="nav-item nav-link" href="#"><NavLink to="/notes">Notes</NavLink></a>
                         </div>
                     </div>
                 </nav>
