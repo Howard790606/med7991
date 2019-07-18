@@ -44,10 +44,10 @@ export default class ABG_Interpretation extends Component {
             <div>
                 <h2>ABG Interpretator </h2>
                 <label> pH<input type="number" value={this.state.kgValue} onChange={this.handleChangeKg}/></label>
-                <label> PaO2<input type="number" value={this.state.ageValue} onChange={this.handleChangeAge}/></label>
-                <label> PaCO2<input type="number" value={this.state.creValue} onChange={this.handleChangeCre}/></label>
-                <label> BE<input type="number" value={this.state.creValue} onChange={this.handleChangeCre}/></label>
-                <label> Na<input type="number" value={this.state.creValue} onChange={this.handleChangeCre}/></label>
+                <label>  PaO2<input type="number" value={this.state.ageValue} onChange={this.handleChangeAge}/>mmHg</label>
+                <label>  PaCO2<input type="number" value={this.state.creValue} onChange={this.handleChangeCre}/>mmHg</label>
+                <label>  BE<input type="number" value={this.state.creValue} onChange={this.handleChangeCre}/>mEg/L</label>
+                <label>  Na<input type="number" value={this.state.creValue} onChange={this.handleChangeCre}/>mEg/L</label>
                 <span>
                     <button onClick={this.handleABG}>calculate</button>
                 </span>
