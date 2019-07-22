@@ -5,49 +5,67 @@ export default class ABG_Interpretation extends Component {
         constructor(props) {
           super(props);
           this.state = { 
-            ccr: 0,
-            eGFR: 0,
-            kgValue : 0,
-            ageValue : 0,
-            creValue : 0,
-            gender: "male",
+            pH : 7.3,
+            PaO2 : 90,
+            PaCO2 : 60,
+            HCO3: 32,
+            Na: 132,
             diagnosis: ""
          };
         }
 
-    handleABG = () => {
-        if(this.state.gender=="male"){
-            this.setState(state => ({ 
-                ccr: ((140-this.state.ageValue)*this.state.kgValue/(72*this.state.creValue)).toFixed(2), 
-                eGFR: (175*Math.pow(this.state.creValue,-1.154)*Math.pow(this.state.ageValue, -0.203)).toFixed(2),
-                diagnosis: "metabolic acidosis"
-            }))
-        }
-        else{
-            this.setState(state => ({ 
-                ccr: (0.85*(140-this.state.ageValue)*this.state.kgValue/(72*this.state.creValue)).toFixed(2), 
-                eGFR: (0.742*175*Math.pow(this.state.creValue,-1.154)*Math.pow(this.state.ageValue, -0.203)).toFixed(2),
-                diagnosis: "metabolic acidosis"
-            }))
-        }
-        };
-    //CCr: [[140 - age(yr)]*weight(kg)]/[72*serum Cr(mg/dL)] 
-    //186 x (Creatinine/88.4)-1.154 x (Age)-0.203 
+    //pH: 7.36 - 7.44
+    //PaCO2: 36 - 44 mmHg
+    //HCO3: 22 - 26 mEq/L
 
-    handleChangeKg = (e) => this.setState({kgValue: e.target.value});
-    handleChangeAge = (e) => this.setState({ageValue: e.target.value});
-    handleChangeCre = (e) => this.setState({creValue: e.target.value});
-    changeGender = (e) => this.setState({gender: e.target.value});
+    handleABG = () => {
+        if(this.state.pH < 7.36){
+            if(this.state.PaCO2 > 44){
+                if((1.2 * (24 - this.state.HCO3) - (this.state.PaCO2 - 40)) >= -2 && (1.2 * (24 - this.state.HCO3) - (this.state.PaCO2 - 40)) <= 2){
+                    this.setState(state => ({ 
+                        diagnosis: "Primary respiratory acidosis with appropriate renal response"
+                    }))
+                }else{
+                    this.setState(state => ({ 
+                        diagnosis: "Primary respiratory acidosis with secondary metalbolic alkalosis"
+                    }))
+                }
+            }
+            else if(this.state.PaCO2 < 36){
+                this.setState(state => ({ 
+                    diagnosis: "Primary metabolic acidosis"
+                }))
+            }
+        }
+        else if(this.state.pH > 7.44){
+            if(this.state.PaCO2 > 44){
+                this.setState(state => ({ 
+                    diagnosis: "Primary metabolic alkalosis"
+                }))
+            }
+            else if(this.state.PaCO2 < 36){
+                this.setState(state => ({ 
+                    diagnosis: "Primary respiratory alkalosis"
+                }))
+            }
+        }
+    }
+    handleChange_pH = (e) => this.setState({pH: e.target.value});
+    handleChange_PaO2 = (e) => this.setState({PaO2: e.target.value});
+    handleChange_PaCO2 = (e) => this.setState({PaCO2: e.target.value});
+    handleChange_HCO3 = (e) => this.setState({HCO3: e.target.value});
+    handleChange_Na = (e) => this.setState({Na: e.target.value});
+  
 
     render() {
         return (
             <div>
                 <h2>ABG Interpretator </h2>
-                <label> pH<input type="number" value={this.state.kgValue} onChange={this.handleChangeKg}/></label>
-                <label>  PaO2<input type="number" value={this.state.ageValue} onChange={this.handleChangeAge}/>mmHg</label>
-                <label>  PaCO2<input type="number" value={this.state.creValue} onChange={this.handleChangeCre}/>mmHg</label>
-                <label>  BE<input type="number" value={this.state.creValue} onChange={this.handleChangeCre}/>mEg/L</label>
-                <label>  Na<input type="number" value={this.state.creValue} onChange={this.handleChangeCre}/>mEg/L</label>
+                <label> pH<input type="number" value={this.state.pH} onChange={this.handleChange_pH}/></label>
+                <label>  PaO2<input type="number" value={this.state.PaO2} onChange={this.handleChange_PaO2}/>mmHg</label>
+                <label>  PaCO2<input type="number" value={this.state.PaCO2} onChange={this.handleChange_PaCO2}/>mmHg</label>
+                <label>  HCO3<input type="number" value={this.state.HCO3} onChange={this.handleChange_HCO3}/>mEg/L</label>
+                <label>  Na<input type="number" value={this.state.Na} onChange={this.handleChange_Na}/>mEg/L</label>
                 <span>
                     <button onClick={this.handleABG}>calculate</button>
                 </span>
