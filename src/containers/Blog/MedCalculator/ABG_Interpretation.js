@@ -60,7 +60,7 @@ export default class ABG_Interpretation extends Component {
     render() {
         return (
             <div>
-                <h2>ABG Interpretator </h2>
+                <h2>ABG Interpretator (Pending)</h2>
                 <label> pH<input type="number" value={this.state.pH} onChange={this.handleChange_pH}/></label>
                 <label>  PaO2<input type="number" value={this.state.PaO2} onChange={this.handleChange_PaO2}/>mmHg</label>
                 <label>  PaCO2<input type="number" value={this.state.PaCO2} onChange={this.handleChange_PaCO2}/>mmHg</label>
