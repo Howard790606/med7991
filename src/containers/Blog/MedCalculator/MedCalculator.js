@@ -8,6 +8,7 @@ export default class MedCalculator extends Component {
         return (
             <div>
                 <CCr/><br></br>
+                <p>Reference:  1. Cockcroft-Gault Equation 2. MDRD quation</p>
                 <ABG_Interpretation/>
                 <p>Reference: The ICU book, 4th edition, Paul L. Marino</p>
             </div>
