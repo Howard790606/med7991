@@ -8,7 +8,6 @@ export default class Authors extends Component {
                 <img></img>
                 <p>
                     A doctor with his interest in techonology especially in computer science, hoping that he can leverage it to clinical use.
-                    Also, a man with his love.
                 </p>
             </div>
         );

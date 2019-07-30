@@ -7,7 +7,7 @@ export default class About extends Component {
             <div>
                 <h1>About</h1>
                 <p>
-                This project is aimed to provide a platform for accessing clinical notes online. Visitors can browse through useful information for clinical use and add or revise the contents on the website supported by a backend system. Clinicians may find it practical for daily use!
+                This website is aimed to provide a platform for accessing clinical notes and medical formulas online. Visitors can browse through useful information for clinical use and add or revise the contents on the website supported by a backend system. Clinicians may find it practical for daily use!
                 </p>
             </div>
         );
