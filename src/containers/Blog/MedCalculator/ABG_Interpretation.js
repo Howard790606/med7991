@@ -31,10 +31,17 @@ export default class ABG_Interpretation extends Component {
                     }))
                 }
             }
-            else if(this.state.PaCO2 < 36){
-                this.setState(state => ({ 
-                    diagnosis: "Primary metabolic acidosis"
-                }))
+            else if(this.state.PaCO2 < 36 && this.state.HCO3 < 22){
+                if(-2 < ((40 - this.state.PaCO2)-1.2*(24 - this.state.HCO3)) && ((40 - this.state.PaCO2)-1.2*(24 - this.state.HCO3) < 2)){
+                    this.setState(state => ({ 
+                        diagnosis: "Primary metabolic acidosis with appropriate pulmonary response"
+                    }))
+                }
+                else if(((40 - this.state.PaCO2)-1.2*(24 - this.state.HCO3) >= 2)){
+                    this.setState(state => ({ 
+                        diagnosis: "Primary metabolic acidosis with secondary respiratory alkalosis"
+                    }))
+                }
             }
         }
         else if(this.state.pH > 7.44){
