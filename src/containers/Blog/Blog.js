@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import AdSense from 'react-adsense';
 import { NavLink, Switch, Route, Redirect } from "react-router-dom";
 
 import Posts from "./Posts/Posts";
@@ -37,6 +38,12 @@ export default class Blog extends Component {
                     <Route path="/" component={MedCalculator} />
                     <Redirect from="/medcalculator" to="/" />
                 </Switch>
+                <AdSense.Google
+                    client='ca-pub-7292810486004926'
+                    slot='7806394673'
+                    style={{ width: 500, height: 300, float: 'left' }}
+                    format=''
+                />
             </div>
         );
     }
