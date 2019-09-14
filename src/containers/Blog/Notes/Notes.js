@@ -5,7 +5,7 @@ export default class Notes extends Component {
     render() {
         return (
             <div>
-                <h1>Notes</h1>
+                <h1>Notes 醫學筆記</h1>
                 <p>
                    MedAssist Notes here.
                 </p>

@@ -46,6 +46,10 @@ export default class ABG_Interpretation extends Component {
                     this.setState(state => ({ 
                         diagnosis: "Primary metabolic acidosis with secondary respiratory alkalosis"
                     }))
+                }else if(((40 - this.state.PaCO2)-1.2*(24 - this.state.HCO3) <= -2)){
+                    this.setState(state => ({ 
+                        diagnosis: "Primary metabolic acidosis with secondary respiratory acidosis"
+                    }))
                 }
                 }else if(this.state.HCO3 > 26){
                     this.setState(state => ({ 
@@ -54,7 +58,8 @@ export default class ABG_Interpretation extends Component {
                 }
             }
         }
-        else if(this.state.pH > 7.44){          //pH > 7.44
+        //pH > 7.44
+        else if(this.state.pH > 7.44){          
             if(this.state.PaCO2 > 44){
                 this.setState(state => ({ 
                     diagnosis: "Primary metabolic alkalosis"
@@ -65,8 +70,44 @@ export default class ABG_Interpretation extends Component {
                     diagnosis: "Primary respiratory alkalosis"
                 }))
             }
-        }else{                   //7.36<pH<7.44
-
+        //7.36 < pH < 7.44
+        }else if(7.36 <= this.state.pH && this.state.pH <= 7.44){                   
+            if(this.state.PaCO2 >= 44){       //誤差值取2, 不包含端點
+                if(((this.state.HCO3 - 24)-0.1*(this.state.PaCO2 - 40)) > -2 && ((this.state.HCO3 - 24)-0.1*(this.state.PaCO2 - 40))< 2){
+                    this.setState(state => ({ 
+                        diagnosis: "Respiratory acidosis with appropriate renal response(Compensated)"
+                    }))
+                }else if(((this.state.HCO3 - 24)-0.1*(this.state.PaCO2 - 40)) <= -2){
+                    this.setState(state => ({ 
+                        diagnosis: "Respiratory acidosis with metabolic acidosis"
+                    }))
+                }else if(((this.state.HCO3 - 24)-0.1*(this.state.PaCO2 - 40)) >= 2){
+                    this.setState(state => ({ 
+                        diagnosis: "Respiratory acidosis with metabolic alkalosis"
+                    }))
+                }
+            }else if(this.state.PaCO2 < 44){
+                if(this.state.HCO3 <= 22){
+                    if(-2 < ((40 - this.state.PaCO2)-1.2*(24 - this.state.HCO3)) && ((40 - this.state.PaCO2)-1.2*(24 - this.state.HCO3) < 2)){
+                    this.setState(state => ({ 
+                        diagnosis: "Metabolic acidosis with appropriate pulmonary response"
+                    }))
+                }
+                else if(((40 - this.state.PaCO2)-1.2*(24 - this.state.HCO3) >= 2)){
+                    this.setState(state => ({ 
+                        diagnosis: "Metabolic acidosis with secondary respiratory alkalosis"
+                    }))
+                }else if(((40 - this.state.PaCO2)-1.2*(24 - this.state.HCO3) <= -2)){
+                    this.setState(state => ({ 
+                        diagnosis: "Metabolic acidosis with secondary respiratory acidosis"
+                    }))
+                }
+                }else if(this.state.HCO3 > 26){
+                    this.setState(state => ({ 
+                        diagnosis: "Not likely"
+                    }))
+                }
+            }
         }
     }
     handleChange_pH = (e) => this.setState({pH: e.target.value});
