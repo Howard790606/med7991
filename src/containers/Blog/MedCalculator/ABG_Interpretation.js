@@ -47,7 +47,7 @@ export default class ABG_Interpretation extends Component {
                         diagnosis: "Primary metabolic acidosis with secondary respiratory alkalosis"
                     }))
                 }
-                }else if(this.state.HCO3 > 22){
+                }else if(this.state.HCO3 > 26){
                     this.setState(state => ({ 
                         diagnosis: "Not likely"
                     }))

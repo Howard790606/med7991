@@ -1,8 +1,8 @@
 # med7991
-A website for medical assist
+A website for medical assist <br />
 
 # deploy
-git add . 
-git commit -m "latest"
-git push origin master
-npm run deploy
+git add . <br />
+git commit -m "latest" <br />
+git push origin master <br />
+npm run deploy <br />
