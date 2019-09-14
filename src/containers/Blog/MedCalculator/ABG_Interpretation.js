@@ -10,6 +10,7 @@ export default class ABG_Interpretation extends Component {
             PaCO2 : 60,
             HCO3: 32,
             Na: 132,
+            Cl: 80,
             diagnosis: ""
          };
         }
@@ -19,20 +20,24 @@ export default class ABG_Interpretation extends Component {
     //HCO3: 22 - 26 mEq/L
 
     handleABG = () => {
-        if(this.state.pH < 7.36){
-            if(this.state.PaCO2 > 44){
-                if((1.2 * (24 - this.state.HCO3) - (this.state.PaCO2 - 40)) >= -2 && (1.2 * (24 - this.state.HCO3) - (this.state.PaCO2 - 40)) <= 2){
+        if(this.state.pH < 7.36){             //pH < 7.36
+            if(this.state.PaCO2 >= 44){       //誤差值取2, 不包含端點
+                if(((this.state.HCO3 - 24)-0.1*(this.state.PaCO2 - 40)) > -2 && ((this.state.HCO3 - 24)-0.1*(this.state.PaCO2 - 40))< 2){
                     this.setState(state => ({ 
-                        diagnosis: "Primary respiratory acidosis with appropriate renal response"
+                        diagnosis: "Primary respiratory acidosis with appropriate renal response(Compensated)"
                     }))
-                }else{
+                }else if(((this.state.HCO3 - 24)-0.1*(this.state.PaCO2 - 40)) <= -2){
+                    this.setState(state => ({ 
+                        diagnosis: "Primary respiratory acidosis with secondary metalbolic acidosis"
+                    }))
+                }else if(((this.state.HCO3 - 24)-0.1*(this.state.PaCO2 - 40)) >= 2){
                     this.setState(state => ({ 
                         diagnosis: "Primary respiratory acidosis with secondary metalbolic alkalosis"
                     }))
                 }
-            }
-            else if(this.state.PaCO2 < 36 && this.state.HCO3 < 22){
-                if(-2 < ((40 - this.state.PaCO2)-1.2*(24 - this.state.HCO3)) && ((40 - this.state.PaCO2)-1.2*(24 - this.state.HCO3) < 2)){
+            }else if(this.state.PaCO2 < 44){
+                if(this.state.HCO3 <= 22){
+                    if(-2 < ((40 - this.state.PaCO2)-1.2*(24 - this.state.HCO3)) && ((40 - this.state.PaCO2)-1.2*(24 - this.state.HCO3) < 2)){
                     this.setState(state => ({ 
                         diagnosis: "Primary metabolic acidosis with appropriate pulmonary response"
                     }))
@@ -42,9 +47,14 @@ export default class ABG_Interpretation extends Component {
                         diagnosis: "Primary metabolic acidosis with secondary respiratory alkalosis"
                     }))
                 }
+                }else if(this.state.HCO3 > 22){
+                    this.setState(state => ({ 
+                        diagnosis: "Not likely"
+                    }))
+                }
             }
         }
-        else if(this.state.pH > 7.44){
+        else if(this.state.pH > 7.44){          //pH > 7.44
             if(this.state.PaCO2 > 44){
                 this.setState(state => ({ 
                     diagnosis: "Primary metabolic alkalosis"
@@ -55,6 +65,8 @@ export default class ABG_Interpretation extends Component {
                     diagnosis: "Primary respiratory alkalosis"
                 }))
             }
+        }else{                   //7.36<pH<7.44
+
         }
     }
     handleChange_pH = (e) => this.setState({pH: e.target.value});
@@ -62,7 +74,7 @@ export default class ABG_Interpretation extends Component {
     handleChange_PaCO2 = (e) => this.setState({PaCO2: e.target.value});
     handleChange_HCO3 = (e) => this.setState({HCO3: e.target.value});
     handleChange_Na = (e) => this.setState({Na: e.target.value});
-  
+    handleChange_Na = (e) => this.setState({Na: e.target.value});
 
     render() {
         return (
@@ -73,6 +85,7 @@ export default class ABG_Interpretation extends Component {
                 <label>  PaCO2<input type="number" value={this.state.PaCO2} onChange={this.handleChange_PaCO2}/>mmHg</label>
                 <label>  HCO3<input type="number" value={this.state.HCO3} onChange={this.handleChange_HCO3}/>mEg/L</label>
                 <label>  Na<input type="number" value={this.state.Na} onChange={this.handleChange_Na}/>mEg/L</label>
+                <label>  Cl<input type="number" value={this.state.Cl} onChange={this.handleChange_Cl}/>mEg/L</label>
                 <span>
                     <button onClick={this.handleABG}>calculate</button>
                 </span>
