@@ -10,7 +10,7 @@ class App extends Component {
 		return (  
 			// <BrowserRouter basename="/my-app">
 			<HashRouter>
-				<div className="App" style={{ height: 900}}>
+				<div className="App" style={{ height: 1050}}>
 					<Blog />
 				</div>
 			</HashRouter>
