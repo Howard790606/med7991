@@ -5,49 +5,37 @@ export default class FENa extends Component {
         constructor(props) {
           super(props);
           this.state = { 
-            ccr: 0,
-            eGFR: 0,
-            kgValue : 0,
-            ageValue : 0,
-            creValue : 0,
-            gender: "male"
+            SNaValue: 0,
+            UNaValue: 0,
+            SCreValue : 0,
+            UCreValue : 0,
+            FENa : 0
          };
         }
 
-    handleIncCCr = () => {
-        if(this.state.gender=="male"){
+    handleIncFENa = () => {
             this.setState(state => ({ 
-                ccr: ((140-this.state.ageValue)*this.state.kgValue/(72*this.state.creValue)).toFixed(2), 
-                eGFR: (175*Math.pow(this.state.creValue,-1.154)*Math.pow(this.state.ageValue, -0.203)).toFixed(2)
+                FENa: ((this.state.UNaValue/this.state.SNaValue)/(this.state.UCreValue/this.state.SCreValue)).toFixed(2)
             }))
-        }
-        else{
-            this.setState(state => ({ 
-                ccr: (0.85*(140-this.state.ageValue)*this.state.kgValue/(72*this.state.creValue)).toFixed(2), 
-                eGFR: (0.742*175*Math.pow(this.state.creValue,-1.154)*Math.pow(this.state.ageValue, -0.203)).toFixed(2)
-            }))
-        }
         };
-    //CCr: [[140 - age(yr)]*weight(kg)]/[72*serum Cr(mg/dL)] 
-    //186 x (Creatinine/88.4)-1.154 x (Age)-0.203 
-
-    handleChangeKg = (e) => this.setState({kgValue: e.target.value});
-    handleChangeAge = (e) => this.setState({ageValue: e.target.value});
-    handleChangeCre = (e) => this.setState({creValue: e.target.value});
-    changeGender = (e) => this.setState({gender: e.target.value});
-
+  
+    handleChangeSNa = (e) => this.setState({SNaValue: e.target.value});
+    handleChangeUNa = (e) => this.setState({UNaValue: e.target.value});
+    handleChangeSCre = (e) => this.setState({SCreValue: e.target.value});
+    handleChangeUCre = (e) => this.setState({UCreValue: e.target.value});
+   
     render() {
         return (
             <div>
                 <h2>FENa calulator </h2>
-                <label>Serum Na<input type="number" value={this.state.kgValue} onChange={this.handleChangeKg}/></label>
-                <label> Urine Na<input type="number" value={this.state.ageValue} onChange={this.handleChangeAge}/></label>
-                <label> Serum Cre<input type="number" value={this.state.creValue} onChange={this.handleChangeCre}/></label>
+                <label>Serum Na<input type="number" value={this.state.SNaValue} onChange={this.handleChangeSNa}/></label>
+                <label> Urine Na<input type="number" value={this.state.UNaValue} onChange={this.handleChangeUNa}/></label>
+                <label> Serum Cre<input type="number" value={this.state.SCreValue} onChange={this.handleChangeSCre}/></label>
+                <label> Urine Cre<input type="number" value={this.state.UCreValue} onChange={this.handleChangeUCre}/></label>
                 <span>
-                    <button onClick={this.handleIncCCr}>calculate</button>
+                    <button onClick={this.handleIncFENa}>calculate</button>
                 </span>
-                <h3>FENa {this.state.ccr}mg/dl</h3>
-                <h3>FEUN: {this.state.eGFR}mg/dl</h3>
+                <h3>FENa {(this.state.FENa)*100} %</h3>
             </div>
         );
     }
