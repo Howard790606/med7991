@@ -41,12 +41,12 @@ export default class CCr extends Component {
             <div>
                 <h2>CCr calulator </h2>
                 <input type="radio" value="male" checked={this.state.gender==="male"} onChange={this.changeGender} />male
-                <input type="radio" value="female" checked={this.state.gender==="female"} onChange={this.changeGender}/>female
+                <input type="radio" value="female" checked={this.state.gender==="female"} onChange={this.changeGender}/>female<a>&nbsp;</a>
                 <label>Kg<input type="number" value={this.state.kgValue} onChange={this.handleChangeKg}/></label>
-                <label> Age<input type="number" value={this.state.ageValue} onChange={this.handleChangeAge}/></label>
-                <label> Cre<input type="number" value={this.state.creValue} onChange={this.handleChangeCre}/></label>
+                <label><a>&nbsp;</a>Age<input type="number" value={this.state.ageValue} onChange={this.handleChangeAge}/></label>
+                <label><a>&nbsp;</a>Cre<input type="number" value={this.state.creValue} onChange={this.handleChangeCre}/></label>
                 <span>
-                    <button onClick={this.handleIncCCr}>calculate</button>
+                    <button onClick={this.handleIncCCr}><a>&nbsp;</a>calculate</button>
                 </span>
                 <h3>CCr: {this.state.ccr}mg/dl</h3>
                 <h3>eGFR: {this.state.eGFR}mg/dl</h3>

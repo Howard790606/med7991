@@ -41,13 +41,13 @@ export default class CCr extends Component {
         return (
             <div>
                 <h2>TIMI Score for UA/NSTEMI</h2>
-                <input type="radio" value="age>=65" checked={this.state.age===">=65"} onChange={this.changeAge} />age>=65<span> </span>
-                <input type="radio" value="female" checked={this.state.gender==="female"} onChange={this.changeAge}/>>=3 CAD risk factors<span> </span>
-                <input type="radio" value="female" checked={this.state.gender==="female"} onChange={this.changeAge}/>known CAD(stenosis>=50%)<span> </span>
-                <input type="radio" value="female" checked={this.state.gender==="female"} onChange={this.changeAge}/>ASA use in past 7 days<span> </span>
-                <input type="radio" value="female" checked={this.state.gender==="female"} onChange={this.changeAge}/>Severe angina (≥2 episodes in 24 hrs)<span> </span>
-                <input type="radio" value="female" checked={this.state.gender==="female"} onChange={this.changeAge}/>EKG ST changes ≥0.5mm<span> </span>
-                <input type="radio" value="female" checked={this.state.gender==="female"} onChange={this.changeAge}/>Positive cardiac marker<span> </span>
+                <input type="radio" value="age>=65" checked={this.state.age===">=65"} onChange={this.changeAge} /> age>=65<a>&nbsp;&nbsp;</a>
+                <input type="radio" value="female" checked={this.state.gender==="female"} onChange={this.changeAge}/> >=3 CAD risk factors<a>&nbsp;&nbsp;</a>
+                <input type="radio" value="female" checked={this.state.gender==="female"} onChange={this.changeAge}/> known CAD(stenosis>=50%)<a>&nbsp;&nbsp;</a>
+                <input type="radio" value="female" checked={this.state.gender==="female"} onChange={this.changeAge}/> ASA use in past 7 days<a>&nbsp;&nbsp;</a>
+                <input type="radio" value="female" checked={this.state.gender==="female"} onChange={this.changeAge}/> Severe angina (≥2 episodes in 24 hrs)<a>&nbsp;&nbsp;</a>
+                <input type="radio" value="female" checked={this.state.gender==="female"} onChange={this.changeAge}/> EKG ST changes ≥0.5mm<a>&nbsp;&nbsp;</a>
+                <input type="radio" value="female" checked={this.state.gender==="female"} onChange={this.changeAge}/> Positive cardiac marker<a>&nbsp;&nbsp;</a>
                <span>
                     <button onClick={this.handleIncCCr}>calculate</button>
                 </span>

@@ -144,13 +144,13 @@ export default class ABG_Interpretation extends Component {
         return (
             <div>
                 <h2>ABG Interpretator</h2>
-                <label> pH<input type="number" value={this.state.pH} onChange={this.handleChange_pH}/></label>
-                <label>  PaO2<input type="number" value={this.state.PaO2} onChange={this.handleChange_PaO2}/>mmHg</label>
-                <label>  PaCO2<input type="number" value={this.state.PaCO2} onChange={this.handleChange_PaCO2}/>mmHg</label>
-                <label>  HCO3<input type="number" value={this.state.HCO3} onChange={this.handleChange_HCO3}/>mEg/L</label>
-                <label>  Na<input type="number" value={this.state.Na} onChange={this.handleChange_Na}/>mEg/L</label>
-                <label>  Cl<input type="number" value={this.state.Cl} onChange={this.handleChange_Cl}/>mEg/L</label>
-                <label>  Alb<input type="number" value={this.state.Alb} onChange={this.handleChange_Alb}/>g/dL</label>
+                <label> pH<input type="number" value={this.state.pH} onChange={this.handleChange_pH}/><a>&nbsp;</a></label>
+                <label>  PaO2<input type="number" value={this.state.PaO2} onChange={this.handleChange_PaO2}/>mmHg<a>&nbsp;</a></label>
+                <label>  PaCO2<input type="number" value={this.state.PaCO2} onChange={this.handleChange_PaCO2}/>mmHg<a>&nbsp;</a></label>
+                <label>  HCO3<input type="number" value={this.state.HCO3} onChange={this.handleChange_HCO3}/>mEg/L<a>&nbsp;</a></label>
+                <label>  Na<input type="number" value={this.state.Na} onChange={this.handleChange_Na}/>mEg/L<a>&nbsp;</a></label>
+                <label>  Cl<input type="number" value={this.state.Cl} onChange={this.handleChange_Cl}/>mEg/L<a>&nbsp;</a></label>
+                <label>  Alb<input type="number" value={this.state.Alb} onChange={this.handleChange_Alb}/>g/dL<a>&nbsp;</a></label>
                 <span>
                     <button onClick={this.handleABG}>calculate</button>
                 </span>
