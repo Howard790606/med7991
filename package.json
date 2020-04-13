@@ -2,13 +2,13 @@
   "name": "react-router-blogs",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://howard790606.github.io/med7991/",
+  "homepage": "http://med7991.com",
   "dependencies": {
-    "bootstrap": "^4.3.1",
-    "gh-pages": "^2.1.1",
-    "react": "^16.11.0",
+    "bootstrap": "^4.4.1",
+    "gh-pages": "^2.2.0",
+    "react": "^16.13.1",
     "react-adsense": "^0.1.0",
-    "react-dom": "^16.11.0",
+    "react-dom": "^16.13.1",
     "react-router-dom": "^5.1.2",
     "react-scripts": "^3.4.1"
   },
