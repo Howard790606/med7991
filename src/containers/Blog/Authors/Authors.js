@@ -7,7 +7,7 @@ export default class Authors extends Component {
             <div>
                 <p>
                     Howard Lu<br></br>
-                    A doctor with his interest in techonology especially in computer science, hoping that he can leverage it to clinical use.
+                    A doctor with his interest in technology especially in computer science, hoping that he can leverage it to clinical use.
                 </p>
                 <a>contact me: </a><a >howard790606@gmail.com</a>
             </div>
