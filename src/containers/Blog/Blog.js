@@ -8,6 +8,7 @@ import About from "./About/About";
 import MedCalculator from "./MedCalculator/MedCalculator";
 import Notes from "./Notes/Notes";
 import Transformer from "./Transformer/Transformer";
+import Culture from "./Culture/Culture";
 
 export default class Blog extends Component {
     render() {
@@ -26,6 +27,7 @@ export default class Blog extends Component {
                             <a class="nav-item nav-link" href="#"><NavLink to="/medcalculator">MedCalculator</NavLink></a>
                             <a class="nav-item nav-link" href="#"><NavLink to="/notes">Notes</NavLink></a>
                             <a class="nav-item nav-link" href="#"><NavLink to="/transformer">Transformer</NavLink></a>
+                            <a class="nav-item nav-link" href="#"><NavLink to="/culture">Culture</NavLink></a>
                         </div>
                     </div>
                 </nav>
@@ -37,6 +39,7 @@ export default class Blog extends Component {
                     <Route path="/medcalculator" component={MedCalculator} />
                     <Route path="/notes" component={Notes} />
                     <Route path="/transformer" component={Transformer} />
+                    <Route path="/culture" component={Culture} />
                     <Route path="/" component={MedCalculator} />
                     <Redirect from="/medcalculator" to="/" />
                 </Switch>
