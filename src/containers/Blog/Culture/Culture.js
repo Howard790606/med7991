@@ -22,20 +22,49 @@ export default class Culture extends Component {
     }
     
     handleSubmit(event) {
-        const Lab = this.state.value;
-        const B2 = Lab.search(/B2\-/);
-        const bloodcx = /ID\+DS Blood\.\#1\(\*\)/g;
-        const bloodcx2 = /ID\+DS Blood\.\#1\(\)/g;
+        let Lab = this.state.value;
+        let BxPB = Lab.search("BLOOD Peripheral");
+        let BxCVC = Lab.search("BLOOD CVP");
+        let BxDLC = Lab.search("BLOOD Double lumen");
+        let bloodcx = /ID\+DS Blood\.\#1\(\*\)/g;
 
-        let myArray;
-        let myArray2;
-        while ((myArray = bloodcx.exec(Lab)) !== null && (myArray2 = bloodcx2.exec(Lab)) !== null) {
-        let msg = Lab.slice(bloodcx.lastIndex-35,bloodcx.lastIndex-25) + ' B/C ' + Lab.slice(bloodcx.lastIndex+1,bloodcx2.lastIndex-16);
+        let bxArray;
+        while ((bxArray = bloodcx.exec(Lab)) !== null) {
+        let msg;
+        if(bloodcx.lastIndex < BxCVC){
+            msg = Lab.slice(bloodcx.lastIndex-35,bloodcx.lastIndex-25) 
+            + ' B/C(PB): ' + Lab.slice(bloodcx.lastIndex+1,bloodcx.lastIndex+25);
+        }else if(bloodcx.lastIndex > BxCVC && bloodcx.lastIndex < BxDLC){
+            msg = Lab.slice(bloodcx.lastIndex-35,bloodcx.lastIndex-25) 
+            + ' B/C(CVC): ' + Lab.slice(bloodcx.lastIndex+1,bloodcx.lastIndex+25);
+        }else if(bloodcx.lastIndex > BxDLC){
+            msg = Lab.slice(bloodcx.lastIndex-35,bloodcx.lastIndex-25) 
+            + ' B/C(DLC): ' + Lab.slice(bloodcx.lastIndex+1,bloodcx.lastIndex+25);
+        }
+        let enter = msg.search("\n");
+        msg = msg.slice(0,enter);
         this.setState(({value_transform}) => ({value_transform:
             value_transform
             .concat(msg)
+            .concat("\n")
         }));
         }
+
+        let urinecx = /ID\+DS Urine \#1\(\/ml\)/g;
+
+        let uxArray;
+        while ((uxArray = urinecx.exec(Lab)) !== null) {
+        let msg = Lab.slice(urinecx.lastIndex-37,urinecx.lastIndex-27) + ' U/C: ' + Lab.slice(urinecx.lastIndex+1,urinecx.lastIndex+25);
+        let enter = msg.search("\n");
+        msg = msg.slice(0,enter);
+        this.setState(({value_transform}) => ({value_transform:
+            value_transform
+            .concat(msg)
+            .concat("\n")
+        }));
+        }
+
+
         event.preventDefault();
     }
     
