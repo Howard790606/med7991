@@ -5,6 +5,7 @@
   "homepage": "http://med7991.com",
   "dependencies": {
     "bootstrap": "^4.4.1",
+    "firebase": "^7.14.4",
     "gh-pages": "^2.2.0",
     "react": "^16.13.1",
     "react-adsense": "^0.1.0",
