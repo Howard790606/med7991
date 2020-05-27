@@ -5,7 +5,7 @@ export default class Transformer extends Component {
     constructor(props) {
         super(props);
         this.state = {
-        value: 'Please paste the original laboratory data forms from your hospital web page and the lab data will be organized in the following table',
+        value: 'Please paste the original laboratory data forms from your hospital web page. The lab data will be organized in the following table.',
         value_transform: '',
         };
     
