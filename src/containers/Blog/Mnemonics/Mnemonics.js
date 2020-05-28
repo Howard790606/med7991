@@ -3,7 +3,10 @@ import { NavLink } from "react-router-dom";
 
 export default class Mnemonics extends Component {
     render() {
-        const mnemonicIDs = ["Acute decompensated heart failure", "High anion gap metabolic acidosis"];
+        const mnemonicIDs = ["Acute decompensated heart failure", 
+        "High anion gap metabolic acidosis",
+        "Systemic lupus erythematosus"
+    ];
         const lists = mnemonicIDs.map((i, index) => (
             <li key={index}>
                 <NavLink to={"/mnemonics/" + i}>{i}</NavLink>
@@ -11,6 +14,7 @@ export default class Mnemonics extends Component {
         ));
         return (
             <div>
+                <h1>醫學口訣</h1>
                 {lists}
             </div>
         );

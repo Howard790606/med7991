@@ -8,6 +8,8 @@ export default class About extends Component {
                 <h1>About 關於我</h1>
                 <p>
                 This website is aimed to provide a platform for accessing clinical notes and medical formulas online. Visitors can browse through useful information for clinical use and add or revise the contents on the website supported by a backend system. Clinicians may find it practical for daily use!
+                <br></br><br></br>
+                *The tool and knowledge shared in this website is for reference only.
                 </p>
             </div>
         );

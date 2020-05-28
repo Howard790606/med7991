@@ -3,7 +3,10 @@ import Mnemonic from "../../../components/Post/Mnemonic";
 
 export default class MnemonicRender extends Component {
     render() {
-        const mnemonicIDs = ["Acute decompensated heart failure", "High anion gap metabolic acidosis"];
+        const mnemonicIDs = ["Acute decompensated heart failure", 
+        "High anion gap metabolic acidosis",
+        "Systemic lupus erythematosus"
+    ];
         const { id } = this.props.match.params;
         return id && mnemonicIDs.includes(id) ? (
             <Mnemonic id={id} />
