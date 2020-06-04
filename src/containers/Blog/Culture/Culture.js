@@ -81,7 +81,7 @@ export default class Culture extends Component {
             <br></br>
             <label>
             <br></br>
-            Culture selected<br></br>
+            Culture selected (Still testing...)<br></br>
             <textarea value={this.state.value_transform} rows={8} cols={50}/>
             </label>
         </form>
