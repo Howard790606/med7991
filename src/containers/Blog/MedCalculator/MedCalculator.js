@@ -3,6 +3,7 @@ import CCr from "./CCr";
 import ABG_Interpretation from "./ABG_Interpretation";
 import TIMI from "./TIMI"
 import FENa from "./FENa"
+import TTKG from "./TTKG"
 
 export default class MedCalculator extends Component {
 
@@ -16,6 +17,7 @@ export default class MedCalculator extends Component {
                 <p>Reference: The ICU book, 4th edition, Paul L. Marino</p>
                 <TIMI/>
                 <FENa/>
+                <TTKG/>
             </div>
         );
     }
