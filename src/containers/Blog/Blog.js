@@ -27,7 +27,7 @@ export default class Blog extends Component {
                             <a class="nav-item nav-link" href="#"><NavLink to="/medcalculator">MedCalculator</NavLink></a>
                             <a class="nav-item nav-link" href="#"><NavLink to="/notes">Notes</NavLink></a>
                             <a class="nav-item nav-link" href="#"><NavLink to="/transformer">Transformer</NavLink></a>
-                            <a class="nav-item nav-link" href="#"><NavLink to="/culture">Culture</NavLink></a>
+                            {/* <a class="nav-item nav-link" href="#"><NavLink to="/culture">Culture</NavLink></a> */}
                         </div>
                     </div>
                 </nav>
