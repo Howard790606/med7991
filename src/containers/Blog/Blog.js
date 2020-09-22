@@ -6,6 +6,7 @@ import MnemonicRender from "./Mnemonics/MnemonicRender";
 import Authors from "./Authors/Authors";
 import About from "./About/About";
 import MedCalculator from "./MedCalculator/MedCalculator";
+import ABG from "./ABG/ABG";
 import Notes from "./Notes/Notes";
 import Transformer from "./Transformer/Transformer";
 import Culture from "./Culture/Culture";
@@ -25,6 +26,7 @@ export default class Blog extends Component {
                             <a class="nav-item nav-link" href="#"><NavLink to='/mnemonics'>Mnemonics</NavLink></a>
                             <a class="nav-item nav-link" href="#"><NavLink to='/authors'>Authors</NavLink></a>
                             <a class="nav-item nav-link" href="#"><NavLink to="/medcalculator">MedCalculator</NavLink></a>
+                            <a class="nav-item nav-link" href="#"><NavLink to="/ABG">ABG</NavLink></a>
                             <a class="nav-item nav-link" href="#"><NavLink to="/notes">Notes</NavLink></a>
                             <a class="nav-item nav-link" href="#"><NavLink to="/transformer">Transformer</NavLink></a>
                             {/* <a class="nav-item nav-link" href="#"><NavLink to="/culture">Culture</NavLink></a> */}
@@ -37,6 +39,7 @@ export default class Blog extends Component {
                     <Route path='/authors' component={Authors} />
                     <Route path='/about' component={About} />
                     <Route path="/medcalculator" component={MedCalculator} />
+                    <Route path="/ABG" component={ABG} />
                     <Route path="/notes" component={Notes} />
                     <Route path="/transformer" component={Transformer} />
                     <Route path="/culture" component={Culture} />
