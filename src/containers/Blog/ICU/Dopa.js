@@ -9,7 +9,7 @@ export default class Dopa extends Component {
             Solvent: 250,
             Weight: 60,
             Rate_ml : 10,
-            Rate_kg : 15
+            Rate_kg : ""
          };
         }
 
@@ -34,7 +34,6 @@ export default class Dopa extends Component {
                 <label>Weight<input type="number" value={this.state.Weight} onChange={this.handleChangeWeight}/>kg<a>&nbsp;</a></label>
                 <br></br>
                 <label>Run<input type="number" value={this.state.Rate_ml} onChange={this.handleChangeRate_ml}/>ml/hr<a>&nbsp;</a></label>
-                <br></br>
                 <span>
                     <button onClick={this.handleIncDopa}>calculate</button>
                 </span>
