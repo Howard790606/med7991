@@ -13,7 +13,8 @@ export default class ABG_Interpretation extends Component {
             Cl: 90,
             Alb: 4,
             diagnosis: "",
-            Anion_gap: ""
+            Anion_gap: "",
+            Delta_gap: ""
          };
         }
 
@@ -23,15 +24,38 @@ export default class ABG_Interpretation extends Component {
     //Anion gap: 8 - 16 mEq/L
 
     handleABG = () => {
-        if((this.state.Na - this.state.HCO3 - this.state.Cl + (4 - this.state.Alb) * 2.5) >= 11){
+        var AG = this.state.Na - this.state.HCO3 - this.state.Cl
+        var AG_expected = this.state.Alb * 2.5
+        var deltaAG = Math.abs(AG-AG_expected)
+        var deltaHCO3 = Math.abs(24-this.state.HCO3)
+
+        if((AG-AG_expected) >= 2){
             this.setState(state => ({ 
-                Anion_gap: this.state.Na - this.state.HCO3 - this.state.Cl + (4 - this.state.Alb) * 2.5 + " (High anion gap, corrected)"
+                Anion_gap: AG + ", High anion gap (expected " + (this.state.Alb) * 2.5 + ")"
+            }))
+            if((AG-AG_expected)/(24-this.state.HCO3)>=1 && (AG -AG_expected)/(24-this.state.HCO3)<=2){
+                this.setState(state => ({ 
+                    Delta_gap: ((AG-AG_expected)/(24-this.state.HCO3)).toFixed(2)  + ", pure anion gap metabolic acidosis"
+                    }))
+            }else if((AG -AG_expected)/(24-this.state.HCO3)> 2){
+                this.setState(state => ({ 
+                    Delta_gap: ((AG-AG_expected)/(24-this.state.HCO3)).toFixed(2) + ", anion gap metabolic acidosis + simultaneous non-AG metabolic acidosis"
+                }))
+            }else{
+                this.setState(state => ({ 
+                    Delta_gap: ((AG-AG_expected)/(24-this.state.HCO3).toFixed(2)) + ", anion gap metabolic acidosis + simultaneous metabolic alkalosis"
+                }))
+            }
+        }else if((this.state.Na - this.state.HCO3 - this.state.Cl -((this.state.Alb) * 2.5)) <= -2){
+            this.setState(state => ({ 
+                Anion_gap: this.state.Na - this.state.HCO3 - this.state.Cl + (4 - this.state.Alb) * 2.5 + ", Low anion gap (expected " + (this.state.Alb) * 2.5 + ")"
             }))
         }else{
             this.setState(state => ({ 
-                Anion_gap: this.state.Na - this.state.HCO3 - this.state.Cl + (4 - this.state.Alb) * 2.5 + " (corrected)"
+                Anion_gap: this.state.Na - this.state.HCO3 - this.state.Cl + (4 - this.state.Alb) * 2.5 + ", Normal anion gap (expected " + (this.state.Alb) * 2.5 + ")"
             }))
         }
+        
         if(this.state.pH < 7.36){             //pH < 7.36
             if(this.state.PaCO2 >= 44){       //誤差值取2, 不包含端點
                 if(((this.state.HCO3 - 24)-0.1*(this.state.PaCO2 - 40)) > -2 && ((this.state.HCO3 - 24)-0.1*(this.state.PaCO2 - 40))< 2){
@@ -131,6 +155,8 @@ export default class ABG_Interpretation extends Component {
                     }))
             }
         }
+
+    
     }
     handleChange_pH = (e) => this.setState({pH: e.target.value});
     handleChange_PaO2 = (e) => this.setState({PaO2: e.target.value});
@@ -143,7 +169,7 @@ export default class ABG_Interpretation extends Component {
     render() {
         return (
             <div>
-                <h2>ABG Interpretator</h2>
+                <h2><font color="#3B3BFF">ABG Interpretator</font></h2>
                 <label> pH<input type="number" value={this.state.pH} onChange={this.handleChange_pH}/><a>&nbsp;</a></label>
                 <label>  PaO2<input type="number" value={this.state.PaO2} onChange={this.handleChange_PaO2}/>mmHg<a>&nbsp;</a></label>
                 <label>  PaCO2<input type="number" value={this.state.PaCO2} onChange={this.handleChange_PaCO2}/>mmHg<a>&nbsp;</a></label>
@@ -155,7 +181,8 @@ export default class ABG_Interpretation extends Component {
                     <button onClick={this.handleABG}>calculate</button>
                 </span>
                 <h3>Diagnosis: {this.state.diagnosis}</h3>
-                <h3>Anion gap: {this.state.Anion_gap}</h3>
+                <h4>Anion gap: {this.state.Anion_gap}</h4>
+                <h4>Delta gap: {this.state.Delta_gap}</h4>
             </div>
         );
     }
