@@ -37,7 +37,7 @@ export default class ABG_Interpretation extends Component {
                 this.setState(state => ({ 
                     Delta_gap: ((AG-AG_expected)/(24-this.state.HCO3)).toFixed(2)  + ", pure anion gap metabolic acidosis"
                     }))
-            }else if((AG -AG_expected)/(24-this.state.HCO3)> 2){
+            }else if((AG -AG_expected)/(24-this.state.HCO3)< 1){
                 this.setState(state => ({ 
                     Delta_gap: ((AG-AG_expected)/(24-this.state.HCO3)).toFixed(2) + ", anion gap metabolic acidosis + simultaneous non-AG metabolic acidosis"
                 }))
