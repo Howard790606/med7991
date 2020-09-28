@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import CCr from "./CCr";
 import FENa from "./FENa"
+import FEUN from "./FEUN"
 import TTKG from "./TTKG"
 
 export default class Nephro extends Component {
@@ -11,6 +12,7 @@ export default class Nephro extends Component {
                 <CCr/>
                 <p>Reference:  1. Cockcroft-Gault Equation 2. MDRD quation</p>
                 <FENa/>
+                <FEUN/>
                 <TTKG/>
             </div>
         );
