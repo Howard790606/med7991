@@ -15,7 +15,7 @@ export default class FEUN extends Component {
 
     handleIncFEUN = () => {
             this.setState(state => ({ 
-                FEUN: (((this.state.UUNValue/this.state.SUNValue)/(this.state.UCreValue/this.state.SCreValue)).toFixed(2))
+                FEUN: (this.state.UUNValue/this.state.SUNValue)/(this.state.UCreValue/this.state.SCreValue)
             }))
         };
   

@@ -15,7 +15,7 @@ export default class TTKG extends Component {
 
     handleIncTTKG = () => {
             this.setState(state => ({ 
-                TTKG: ((this.state.UKValue/this.state.SKValue)/(this.state.UOsmValue/this.state.SOsmValue)).toFixed(1)
+                TTKG: (this.state.UKValue/this.state.SKValue)/(this.state.UOsmValue/this.state.SOsmValue)
             }))
         };
   

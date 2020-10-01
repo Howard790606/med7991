@@ -15,7 +15,7 @@ export default class FENa extends Component {
 
     handleIncFENa = () => {
             this.setState(state => ({ 
-                FENa: (((this.state.UNaValue/this.state.SNaValue)/(this.state.UCreValue/this.state.SCreValue)).toFixed(2))
+                FENa: (this.state.UNaValue/this.state.SNaValue)/(this.state.UCreValue/this.state.SCreValue)
             }))
         };
   
