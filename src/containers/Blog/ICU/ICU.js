@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Dopa from "./Dopa";
+import IBW from "./IBW";
 
 export default class ICU extends Component {
 
@@ -7,6 +8,8 @@ export default class ICU extends Component {
         return (
             <div>
             <Dopa/>
+            <br></br>
+            <IBW/>
             </div>
         );
     }
