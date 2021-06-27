@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { HashRouter } from 'react-router-dom'
 import "./index.css"
 
-import Blog from './containers/Blog/Blog'
+import Main from './containers/Main/Main'
 
 class App extends Component {
 	render() {
@@ -10,7 +10,7 @@ class App extends Component {
 			// <BrowserRouter basename="/my-app">
 			<HashRouter>
 				<div className="App"  style={{ height: 1050}}>
-					<Blog />
+					<Main />
 				</div>
 			</HashRouter>
 		)
