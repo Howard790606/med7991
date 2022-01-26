@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 
-export default class TIMI extends Component {
+export default class MELD extends Component {
         constructor(props) {
           super(props);
           this.state = { 
@@ -82,7 +82,7 @@ export default class TIMI extends Component {
     render() {
         return (
             <div>
-                <h2><font color="#FF5959">TIMI Score for UA/NSTEMI</font></h2>
+                <h2><font color="#1e6b33">MELD-Na Score</font></h2>
                 <input type="checkbox" value="age" onChange={this.changeTIMI_age} /> age>=65<a>&nbsp;&nbsp;</a>
                 <input type="checkbox" value="Risk" onChange={this.changeTIMI_Risk}/> >=3 CAD risk factors<a>&nbsp;&nbsp;</a>
                 <input type="checkbox" value="knownCAD" onChange={this.changeTIMI_knownCAD}/> known CAD(stenosis>=50%)<a>&nbsp;&nbsp;</a>

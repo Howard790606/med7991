@@ -6,6 +6,7 @@ import MnemonicRender from "./Mnemonics/MnemonicRender";
 import Authors from "./Authors/Authors";
 import Blog from "./Blog/Blog";
 import CV from "./CV/CV";
+import GI from "./GI/GI";
 import Nephro from "./Nephro/Nephro";
 import ICU from "./ICU/ICU";
 import ABG from "./ABG/ABG";
@@ -26,6 +27,7 @@ export default class Main extends Component {
                             <a class="nav-item nav-link" href="#"><NavLink to='/authors'>Authors</NavLink></a>
                             <a class="nav-item nav-link" href="#"><NavLink to='/Blog'>Blog</NavLink></a>
                             <a class="nav-item nav-link" href="#"><NavLink to="/CV">CV</NavLink></a>
+                            <a class="nav-item nav-link" href="#"><NavLink to="/GI">GI</NavLink></a>
                             <a class="nav-item nav-link" href="#"><NavLink to="/Nephro">Nephro</NavLink></a>
                             <a class="nav-item nav-link" href="#"><NavLink to="/ICU">ICU</NavLink></a>
                             <a class="nav-item nav-link" href="#"><NavLink to="/ABG">ABG</NavLink></a>
@@ -41,6 +43,7 @@ export default class Main extends Component {
                     <Route path='/authors' component={Authors} />
                     <Route path='/Blog' component={Blog} />
                     <Route path="/CV" component={CV} />
+                    <Route path="/GI" component={GI} />
                     <Route path="/Nephro" component={Nephro} />
                     <Route path="/ICU" component={ICU} />
                     <Route path="/ABG" component={ABG} />
