@@ -98,7 +98,7 @@ export default class CHILDPUGH extends Component {
                 <input type="radio" value="refractory" checked={this.state.HE==="refractory"} onChange={this.changeHE}/>Grade 3-4<a>&nbsp;</a>
                 <br></br>
                 <button onClick={this.handleCPscore}><a>&nbsp;</a>calculate</button>
-                 <a>&nbsp;&nbsp;</a>
+                <a>&nbsp;&nbsp;</a>
                 <h3>Score: {this.state.CPscore}</h3>
                 
             </div>

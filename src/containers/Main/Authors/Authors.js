@@ -5,7 +5,7 @@ import Author from "./Author.jpg"
 export default class Authors extends Component {
     render() {
         return (
-            <div>
+            <div class="col-md-10 offset-md-1 col-sm-12">
                 <img src={Author} width={500}></img>
                 <p>
                     Howard Lu<br></br>

@@ -9,7 +9,7 @@ class App extends Component {
 		return (  
 			// <BrowserRouter basename="/my-app">
 			<HashRouter>
-				<div className="App"  style={{ height: 1050}}>
+				<div className="App">
 					<Main />
 				</div>
 			</HashRouter>

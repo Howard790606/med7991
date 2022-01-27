@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 export default class Blog extends Component {
     render() {
         return (
-            <div>
+            <div class="col-md-10 offset-md-1 col-sm-12">
                 <br></br>
                 <h2>
                     Will release soon...<br></br>

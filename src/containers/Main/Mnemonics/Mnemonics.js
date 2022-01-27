@@ -13,7 +13,7 @@ export default class Mnemonics extends Component {
             </li>
         ));
         return (
-            <div>
+            <div class="col-md-10 offset-md-1 col-sm-12">
                 <h1>醫學口訣</h1>
                 {lists}
             </div>

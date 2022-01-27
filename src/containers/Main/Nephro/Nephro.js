@@ -9,7 +9,7 @@ export default class Nephro extends Component {
 
     render() {
         return (
-            <div>
+            <div class="col-md-10 offset-md-1 col-sm-12">
                 <CCr/>
                 <p>Reference:  1. Cockcroft-Gault Equation 2. MDRD quation</p>
                 <CystatinC/>

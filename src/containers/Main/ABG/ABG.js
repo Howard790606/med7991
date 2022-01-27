@@ -5,7 +5,7 @@ export default class ABG extends Component {
 
     render() {
         return (
-            <div>
+            <div class="col-md-10 offset-md-1 col-sm-12">
                 <ABG_Interpretation/>
                 <p>Reference: The ICU book, 4th edition, Paul L. Marino</p>
             </div>
