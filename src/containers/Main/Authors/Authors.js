@@ -14,6 +14,7 @@ export default class Authors extends Component {
                     <br></br>
                     <a>*The tool and knowledge shared in this website is for reference only.</a>
                 </p>
+                <p class="text-center"><b>Copyrights reserved by Howard & Sherry*, last update in 2022/01</b></p>
             </div>
         );
     }
