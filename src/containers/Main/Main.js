@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { NavLink, Switch, Route, Redirect } from "react-router-dom";
+import { Navbar, Nav, NavItem, NavDropdown, MenuItem, Container } from 'react-bootstrap';
 
 import Mnemonics from "./Mnemonics/Mnemonics";
 import MnemonicRender from "./Mnemonics/MnemonicRender";
@@ -10,36 +11,34 @@ import GI from "./GI/GI";
 import Nephro from "./Nephro/Nephro";
 import ICU from "./ICU/ICU";
 import ABG from "./ABG/ABG";
-import Transformer from "./Transformer/Transformer";
-import Culture from "./Culture/Culture";
+import CCr1 from "./Nephro/CCr1";
+import CystatinC1 from "./Nephro/CystatinC1";
 
 export default class Main extends Component {
     render() {
         return (
-            <div>
-                <nav className="navbar navbar-expand-lg navbar-light bg-light"> 
-                    <div class="offset-md-1">
-                    <a className="navbar-brand">Med7991</a>
-                    <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                     <span className="navbar-toggler-icon"></span>
-                    </button>
-                    </div>
-                  
-                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                        <div class="navbar-nav">
-                            <a class="nav-item nav-link" href="#"><NavLink to='/authors'>Authors</NavLink></a>
-                            <a class="nav-item nav-link" href="#"><NavLink to='/Blog'>Blog</NavLink></a>
-                            <a class="nav-item nav-link" href="#"><NavLink to="/CV">CV</NavLink></a>
-                            <a class="nav-item nav-link" href="#"><NavLink to="/GI">GI</NavLink></a>
-                            <a class="nav-item nav-link dropdown-toggle" href="#"><NavLink to="/Nephro">Nephro</NavLink></a>
-                            <a class="nav-item nav-link" href="#"><NavLink to="/ICU">ICU</NavLink></a>
-                            <a class="nav-item nav-link" href="#"><NavLink to="/ABG">ABG</NavLink></a>
-                            <a class="nav-item nav-link" href="#"><NavLink to='/mnemonics'>Mnemonics</NavLink></a>
-                            {/* <a class="nav-item nav-link" href="#"><NavLink to="/transformer">Transformer</NavLink></a> */}
-                            {/* <a class="nav-item nav-link" href="#"><NavLink to="/culture">Culture</NavLink></a> */}
-                        </div>
-                    </div>
-                </nav>
+            <div>                
+                <Navbar bg="light" expand="lg">
+                    <Navbar.Brand href="#home" className="offset-md-1">Med7991</Navbar.Brand>
+                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                    <Navbar.Collapse id="basic-navbar-nav">
+                    <Nav className="me-auto">
+                        <Nav.Link href="#authors">Authors</Nav.Link>
+                        <Nav.Link href="#Blog">Blog</Nav.Link>
+                        <Nav.Link href="#CV">CV</Nav.Link>
+                        <Nav.Link href="#GI">GI</Nav.Link>
+                        <Nav.Link href="#Nephro">Nephro</Nav.Link>
+                        <NavDropdown title="Nephro" id="basic-nav-dropdown">
+                        <NavDropdown.Item href="#CCr1">CCr Calcultor</NavDropdown.Item>
+                        <NavDropdown.Item href="#CystatinC1">CKD-EPI CystatinC eGFR calculator</NavDropdown.Item>
+                        </NavDropdown>
+                        <Nav.Link href="#ICU">ICU</Nav.Link>
+                        <Nav.Link href="#ABG">ABG</Nav.Link>
+                        <Nav.Link href="#Mnemonics">Mnemonics</Nav.Link>                        
+                    </Nav>
+                    </Navbar.Collapse>
+                </Navbar>
+
                 <Switch>
                     <Route exact path='/Mnemonics' component={Mnemonics} />
                     <Route path="/mnemonics/:id?" component={MnemonicRender} />
@@ -48,11 +47,13 @@ export default class Main extends Component {
                     <Route path="/CV" component={CV} />
                     <Route path="/GI" component={GI} />
                     <Route path="/Nephro" component={Nephro} />
+                    <Route path="/CCr1" component={CCr1} />
+                    <Route path="/CystatinC1" component={CystatinC1} />
                     <Route path="/ICU" component={ICU} />
                     <Route path="/ABG" component={ABG} />
                     {/* <Route path="/transformer" component={Transformer} /> */}
                     {/* <Route path="/culture" component={Culture} /> */}
-                    <Route path="/" component={CV} />
+                    <Route path="/" component={Authors} />
                     <Redirect from="/CV" to="/" />
                 </Switch>
             </div>
