@@ -21,17 +21,16 @@ export default class Main extends Component {
     render() {
         return (
             <div>                
-                <Navbar bg="light" expand="lg">
+                <Navbar collapseOnSelect bg="light" expand="lg">
                     <Navbar.Brand href="#home" className="offset-md-1">Med7991</Navbar.Brand>
-                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                    <Navbar.Collapse id="basic-navbar-nav">
+                    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                    <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
                         <Nav.Link href="#authors">Authors</Nav.Link>
                         <Nav.Link href="#Blog">Blog</Nav.Link>
                         <Nav.Link href="#CV">CV</Nav.Link>
                         <Nav.Link href="#GI">GI</Nav.Link>
-                        <Nav.Link href="#Nephro">Nephro</Nav.Link>
-                        <NavDropdown title="Nephro" id="basic-nav-dropdown">
+                        <NavDropdown title="Nephro" id="collasible-nav-dropdown">
                         <NavDropdown.Item href="#CCr1">CCr Calcultor</NavDropdown.Item>
                         <NavDropdown.Item href="#CystatinC1">CKD-EPI CystatinC eGFR calculator</NavDropdown.Item>
                         <NavDropdown.Item href="#FENa1">FENa calculator</NavDropdown.Item>
