@@ -13,6 +13,9 @@ import ICU from "./ICU/ICU";
 import ABG from "./ABG/ABG";
 import CCr1 from "./Nephro/CCr1";
 import CystatinC1 from "./Nephro/CystatinC1";
+import FENa1 from "./Nephro/FENa1";
+import FEUN1 from "./Nephro/FEUN1";
+import TTKG1 from "./Nephro/TTKG1";
 
 export default class Main extends Component {
     render() {
@@ -31,6 +34,9 @@ export default class Main extends Component {
                         <NavDropdown title="Nephro" id="basic-nav-dropdown">
                         <NavDropdown.Item href="#CCr1">CCr Calcultor</NavDropdown.Item>
                         <NavDropdown.Item href="#CystatinC1">CKD-EPI CystatinC eGFR calculator</NavDropdown.Item>
+                        <NavDropdown.Item href="#FENa1">FENa calculator</NavDropdown.Item>
+                        <NavDropdown.Item href="#FEUN1">FEUN calculator</NavDropdown.Item>
+                        <NavDropdown.Item href="#TTKG1">TTKG calculator</NavDropdown.Item>
                         </NavDropdown>
                         <Nav.Link href="#ICU">ICU</Nav.Link>
                         <Nav.Link href="#ABG">ABG</Nav.Link>
@@ -49,6 +55,9 @@ export default class Main extends Component {
                     <Route path="/Nephro" component={Nephro} />
                     <Route path="/CCr1" component={CCr1} />
                     <Route path="/CystatinC1" component={CystatinC1} />
+                    <Route path="/FENa1" component={FENa1} />
+                    <Route path="/FEUN1" component={FEUN1} />
+                    <Route path="/TTKG1" component={TTKG1} />
                     <Route path="/ICU" component={ICU} />
                     <Route path="/ABG" component={ABG} />
                     {/* <Route path="/transformer" component={Transformer} /> */}
