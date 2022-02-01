@@ -16,6 +16,7 @@ import CystatinC1 from "./Nephro/CystatinC1";
 import FENa1 from "./Nephro/FENa1";
 import FEUN1 from "./Nephro/FEUN1";
 import TTKG1 from "./Nephro/TTKG1";
+import Steroid from "./Blog/Steroid";
 
 export default class Main extends Component {
     render() {
@@ -31,11 +32,13 @@ export default class Main extends Component {
                         <Nav.Link href="#CV">CV</Nav.Link>
                         <Nav.Link href="#GI">GI</Nav.Link>
                         <NavDropdown title="Nephro" id="collasible-nav-dropdown">
-                        <NavDropdown.Item href="#CCr1">CCr Calcultor</NavDropdown.Item>
+                        <NavDropdown.Item href="#CCr1">CCr calcultor</NavDropdown.Item>
                         <NavDropdown.Item href="#CystatinC1">CKD-EPI CystatinC eGFR calculator</NavDropdown.Item>
                         <NavDropdown.Item href="#FENa1">FENa calculator</NavDropdown.Item>
                         <NavDropdown.Item href="#FEUN1">FEUN calculator</NavDropdown.Item>
                         <NavDropdown.Item href="#TTKG1">TTKG calculator</NavDropdown.Item>
+                        <NavDropdown.Divider />
+                        <NavDropdown.Item href="#Nephro">All</NavDropdown.Item>
                         </NavDropdown>
                         <Nav.Link href="#ICU">ICU</Nav.Link>
                         <Nav.Link href="#ABG">ABG</Nav.Link>
@@ -48,7 +51,7 @@ export default class Main extends Component {
                     <Route exact path='/Mnemonics' component={Mnemonics} />
                     <Route path="/mnemonics/:id?" component={MnemonicRender} />
                     <Route path='/authors' component={Authors} />
-                    <Route path='/Blog' component={Blog} />
+                    <Route path='/Blog' component={Steroid} />
                     <Route path="/CV" component={CV} />
                     <Route path="/GI" component={GI} />
                     <Route path="/Nephro" component={Nephro} />
@@ -59,8 +62,6 @@ export default class Main extends Component {
                     <Route path="/TTKG1" component={TTKG1} />
                     <Route path="/ICU" component={ICU} />
                     <Route path="/ABG" component={ABG} />
-                    {/* <Route path="/transformer" component={Transformer} /> */}
-                    {/* <Route path="/culture" component={Culture} /> */}
                     <Route path="/" component={Authors} />
                     <Redirect from="/CV" to="/" />
                 </Switch>

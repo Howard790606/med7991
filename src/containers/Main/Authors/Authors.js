@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { NavLink } from "react-router-dom";
 import Author from "./Author.jpg"
 
 export default class Authors extends Component {
