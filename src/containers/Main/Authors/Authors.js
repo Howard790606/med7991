@@ -5,15 +5,17 @@ export default class Authors extends Component {
     render() {
         return (
             <div class="col-md-10 offset-md-1 col-sm-12">
-                <img src={Author} width={500}></img>
-                <p>
-                    Howard Lu<br></br>
-                    A medical doctor with his interest in technology especially in computer science, hoping to share tools for clinical use.<br></br>
+                <div style={{float: "left", padding: "0px 20px 0px 0px"}}>
+                    <img src={Author} width={350}></img>
+                </div>
+                <div style={{padding: "120px 20px 0px 0px"}}>   
+                    Chien-Hung Lu<br></br>
+                    A medical Doctor with interests in computational methods and quantitative analysis in biomedicine.<br></br>
+                    A clinical fellow in Gastroenterology and Hepatology.<br></br>
                     <a>contact me: </a><a href="mailto:howard790606@gmail.com">howard790606@gmail.com</a>
                     <br></br>
-                    <a>*The tool and knowledge shared in this website is for reference only.</a>
-                </p>
-                <p class="text-center"><b>Copyrights reserved by Howard & Sherry*, last update in 2022/01</b></p>
+                    <a>*The tools and knowledge shared in this website is for reference only. Last update in 2023/10.</a>
+                </div> 
             </div>
         );
     }
