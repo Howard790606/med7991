@@ -10,7 +10,7 @@ export default class Authors extends Component {
                 </div>
                 <div style={{padding: "120px 20px 0px 0px"}}>   
                     Chien-Hung Lu<br></br>
-                    A medical Doctor with interests in computational methods and quantitative analysis in biomedicine.<br></br>
+                    A medical doctor with interests in computational methods and quantitative analysis in biomedicine.<br></br>
                     A clinical fellow in Gastroenterology and Hepatology.<br></br>
                     <a>contact me: </a><a href="mailto:howard790606@gmail.com">howard790606@gmail.com</a>
                     <br></br>
