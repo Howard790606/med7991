@@ -1,5 +1,5 @@
 # med7991
-A website for medical assist <br />
+This is a website I created for medical calculations. <br />
 
 Link: https://med7991.com
 
