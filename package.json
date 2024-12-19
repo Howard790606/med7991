@@ -6,7 +6,7 @@
   "dependencies": {
     "bootstrap": "^4.6.1",
     "firebase": "^9.6.5",
-    "gh-pages": "^2.2.0",
+    "gh-pages": "^5.0.0",
     "react": "^16.14.0",
     "react-adsense": "^0.1.0",
     "react-bootstrap": "^2.1.1",
